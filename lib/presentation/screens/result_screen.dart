@@ -158,6 +158,7 @@ class ResultScreen extends StatelessWidget {
     // Se não houver card_data, mas houver nome ou descrição, mostra esses dados
     final name = cardData!['card_name'] as String?;
     final description = cardData!['description'] as String?;
+    final localImagePath = cardData?['localImagePath'] as String?;
     return Scaffold(
       appBar: AppBar(title: const Text('Resultado')),
       body: Center(
@@ -167,6 +168,33 @@ class ResultScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              if (localImagePath != null && localImagePath.isNotEmpty)
+                Column(
+                  children: [
+                    const Text('Imagem Escaneada',
+                        style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black54)),
+                    const SizedBox(height: 8),
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(12),
+                      child: Image.file(
+                        File(localImagePath),
+                        height: 250,
+                        fit: BoxFit.contain,
+                        errorBuilder: (context, error, stackTrace) {
+                          return Container(
+                            height: 250,
+                            color: Colors.grey[300],
+                            child: const Icon(Icons.image, size: 48),
+                          );
+                        },
+                      ),
+                    ),
+                    const SizedBox(height: 24),
+                  ],
+                ),
               if (name != null && name.isNotEmpty)
                 Text(name,
                     style: const TextStyle(
@@ -186,7 +214,8 @@ class ResultScreen extends StatelessWidget {
                         fontSize: 14, color: Colors.grey[700], height: 1.5)),
               ],
               if ((name == null || name.isEmpty) &&
-                  (description == null || description.isEmpty))
+                  (description == null || description.isEmpty) &&
+                  (localImagePath == null || localImagePath.isEmpty))
                 const Text('Nenhum dado disponível'),
               const SizedBox(height: 32),
               SizedBox(
