@@ -1,0 +1,16 @@
+# Render Deploy - Magic Scanner
+# Este arquivo configura o deploy no Render.com
+
+services:
+  - type: web
+    name: magic-scanner-api
+    env: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "uvicorn main:app --host 0.0.0.0 --port $PORT"
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false  # Será configurado manualmente no painel
+      - key: PYTHON_VERSION
+        value: "3.11.0"
+    healthCheckPath: "/health"
