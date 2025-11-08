@@ -159,20 +159,7 @@ cp .env.example .env
 uvicorn main:app --host 0.0.0.0 --port 8000
 ```
 
-### Opção 2: Docker (Recomendado para Produção)
 
-**Execute com Docker Compose (mais fácil):**
-```bash
-# Na pasta raiz do projeto
-docker-compose up --build
-```
-
-**Ou com Docker manualmente:**
-```bash
-# Na pasta backend
-docker build -t magic-backend .
-docker run -p 8000:8000 --env-file .env magic-backend
-```
 
 ### Opção 3: Deploy na Nuvem (GRÁTIS/BARATO)
 
