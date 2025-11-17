@@ -22,7 +22,7 @@ pip install -r requirements.txt
 if [ ! -f ".env" ]; then
     echo "⚠️  Arquivo .env não encontrado!"
     echo "📝 Crie um arquivo .env com:"
-    echo "   OPENAI_API_KEY=AIzaSyADipw1fO6fq9tRDdo-zAacSoOWQubDF3U"
+    echo "   Gemini_API_KEY={colocar chave aqui}"
     echo "   PORT=3000"
     echo "   HOST=0.0.0.0"
     exit 1

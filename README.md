@@ -159,6 +159,124 @@ cp .env.example .env
 uvicorn main:app --host 0.0.0.0 --port 8000
 ```
 
+### Opção 1B: Rodando no Windows
+
+```bat
+REM 1. Instale Python 3.8+ e Git (https://www.python.org/downloads/)
+REM 2. Clone o repositório
+git clone https://github.com/Michelfviana/magic.git
+cd magic\backend
+
+REM 3. Crie e ative o ambiente virtual
+python -m venv venv
+venv\Scripts\activate
+
+REM 4. Instale as dependências
+pip install -r requirements.txt
+
+REM 5. Configure variáveis de ambiente
+copy .env.example .env
+REM Edite .env e adicione sua GEMINI_API_KEY
+
+REM 6. Rode o servidor
+uvicorn main:app --reload --port 8000
+REM O backend estará disponível em http://localhost:8000
+```
+
+> **Dicas Windows:**
+
+> - Use o Prompt de Comando (cmd) ou PowerShell.
+> - Para ativar o venv no PowerShell: `venv\Scripts\Activate.ps1`
+> - Se der erro de permissão, execute: `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser` no PowerShell.
+
+---
+
+### Opção 1C: Rodando com Docker
+
+> **Pré-requisito:** Docker instalado ([download](https://www.docker.com/products/docker-desktop/))
+
+#### Build e run manual do backend
+
+```bash
+cd backend
+docker build -t magic-backend .
+docker run -d -p 8000:8000 --env-file .env magic-backend
+# O backend estará disponível em http://localhost:8000
+```
+
+#### Usando docker-compose
+
+```bash
+cd backend
+docker-compose up --build
+# O backend estará disponível em http://localhost:8000
+```
+
+> **Dicas Docker:**
+
+> - Edite o arquivo `.env` antes de rodar para garantir que a variável `GEMINI_API_KEY` está definida.
+> - Para parar os containers: `docker-compose down` ou `docker stop <id>`
+> - Para logs: `docker logs <id>`
+
+---
+
+### Opção 1B: Rodando no Windows
+
+```bat
+REM 1. Instale Python 3.8+ e Git (https://www.python.org/downloads/)
+REM 2. Clone o repositório
+git clone https://github.com/Michelfviana/magic.git
+cd magic\backend
+
+REM 3. Crie e ative o ambiente virtual
+python -m venv venv
+venv\Scripts\activate
+
+REM 4. Instale as dependências
+pip install -r requirements.txt
+
+REM 5. Configure variáveis de ambiente
+copy .env.example .env
+REM Edite .env e adicione sua GEMINI_API_KEY
+
+REM 6. Rode o servidor
+uvicorn main:app --reload --port 8000
+REM O backend estará disponível em http://localhost:8000
+```
+
+> **Dicas Windows:**
+> - Use o Prompt de Comando (cmd) ou PowerShell.
+> - Para ativar o venv no PowerShell: `venv\Scripts\Activate.ps1`
+> - Se der erro de permissão, execute: `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser` no PowerShell.
+
+---
+
+### Opção 1C: Rodando com Docker
+
+> **Pré-requisito:** Docker instalado ([download](https://www.docker.com/products/docker-desktop/))
+
+#### Build e run manual do backend:
+```bash
+cd backend
+docker build -t magic-backend .
+docker run -d -p 8000:8000 --env-file .env magic-backend
+# O backend estará disponível em http://localhost:8000
+```
+
+#### Usando docker-compose:
+```bash
+cd backend
+docker-compose up --build
+# O backend estará disponível em http://localhost:8000
+```
+
+> **Dicas Docker:**
+> - Edite o arquivo `.env` antes de rodar para garantir que a variável `GEMINI_API_KEY` está definida.
+> - Para parar os containers: `docker-compose down` ou `docker stop <id>`
+> - Para logs: `docker logs <id>`
+
+---
+
 
 
 ### Opção 3: Deploy na Nuvem (GRÁTIS/BARATO)
