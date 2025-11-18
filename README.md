@@ -77,7 +77,7 @@ magic/
 
 #### 1. Clone o Repositório
 ```bash
-git clone https://github.com/Michelfviana/magic.git
+git clone https://github.com/Michelfviana/magic_scanner.git
 cd magic
 ```
 
