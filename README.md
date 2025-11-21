@@ -1,6 +1,7 @@
 # Magic Scanner - Projeto de Aplicativo de Reconhecimento de Cartas de Magic
 
 **Membros do Grupo:**
+
 - Gabriel de Oliveira Ramin
 - João Victor de Oliveira  
 - Alex Zulini Venier
@@ -14,6 +15,7 @@ Jogadores de Magic: The Gathering frequentemente precisam identificar rapidament
 ## 2. Objetivo do Projeto
 
 Desenvolver um aplicativo móvel em Flutter que, utilizando recursos de inteligência artificial e APIs externas, permita:
+
 - Identificar cartas de Magic a partir de fotos tiradas com o celular
 - Consultar automaticamente informações oficiais (nome, edição, imagem, descrição)
 - Exibir o valor de mercado atualizado da carta em tempo real
@@ -76,6 +78,7 @@ magic/
 ### Instalação Completa
 
 #### 1. Clone o Repositório
+
 ```bash
 git clone https://github.com/Michelfviana/magic_scanner.git
 cd magic
@@ -245,6 +248,7 @@ REM O backend estará disponível em http://localhost:8000
 ```
 
 > **Dicas Windows:**
+
 > - Use o Prompt de Comando (cmd) ou PowerShell.
 > - Para ativar o venv no PowerShell: `venv\Scripts\Activate.ps1`
 > - Se der erro de permissão, execute: `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser` no PowerShell.
@@ -274,104 +278,6 @@ docker-compose up --build
 > - Edite o arquivo `.env` antes de rodar para garantir que a variável `GEMINI_API_KEY` está definida.
 > - Para parar os containers: `docker-compose down` ou `docker stop <id>`
 > - Para logs: `docker logs <id>`
-
----
-
-
-
-### Opção 3: Deploy na Nuvem (GRÁTIS/BARATO)
-
-## 🚀 **MAIS BARATO E FÁCIL: Railway (Recomendado)**
-
-✅ **GRÁTIS**: $5/mês de crédito (suficiente para o projeto)  
-✅ **Deploy automático**: Conecta direto com GitHub  
-✅ **SSL incluso**: HTTPS automático  
-
-### Passos Railway:
-1. **Acesse**: [railway.app](https://railway.app)
-2. **Login** com GitHub
-3. **"New Project" → "Deploy from GitHub repo"**
-4. **Selecione** este repositório
-5. **Configure variável**:
-   - `GEMINI_API_KEY` = sua_chave_do_gemini
-6. **Deploy automático!** 🎉
-
-**URL final**: `https://magic-[id].up.railway.app`
-
----
-
-## 🆓 **OPÇÃO 2: Render (100% Grátis)**
-
-✅ **Completamente GRÁTIS**  
-✅ **SSL incluso**  
-❌ **Limitação**: Hiberna após 15min inativo  
-
-### Passos Render:
-1. **Acesse**: [render.com](https://render.com)
-2. **"New" → "Web Service"**
-3. **Conecte** seu repositório GitHub
-4. **Configure**:
-   - **Root Directory**: `backend`
-   - **Build Command**: `pip install -r requirements.txt`
-   - **Start Command**: `uvicorn main:app --host 0.0.0.0 --port $PORT`
-5. **Adicione variável**: `GEMINI_API_KEY`
-
----
-
-## 💰 **OPÇÃO 3: VPS Barato (Oracle/Hetzner)**
-
-### Oracle Cloud (GRÁTIS PARA SEMPRE):
-- **2 VMs grátis** para sempre
-- **1GB RAM + 1 VCPU**
-- **Ubuntu 22.04**
-
-```bash
-# No servidor Oracle
-sudo apt update && sudo apt install python3 python3-pip git -y
-git clone https://github.com/seu_usuario/magic.git
-cd magic
-chmod +x deploy.sh
-./deploy.sh
-```
-
-### Hetzner Cloud (€3.29/mês):
-- **2GB RAM + 1 VCPU**
-- **20GB SSD**
-- **Alemanha/Finlândia**
-
----
-
-## 🌐 **COMPARAÇÃO DE CUSTOS:**
-
-| Plataforma | Custo | Recursos | SSL | Domínio |
-|------------|-------|----------|-----|---------|
-| **Railway** | $5/mês crédito | 0.5GB RAM | ✅ | ✅ |
-| **Render** | GRÁTIS | 0.5GB RAM | ✅ | ✅ |
-| **Oracle** | GRÁTIS | 1GB RAM | ❌ | ❌ |
-| **Hetzner** | €3.29/mês | 2GB RAM | ❌ | ❌ |
-
-**🏆 RECOMENDAÇÃO: Railway** (mais fácil + confiável)
-
-### Configurar App Flutter para Servidor
-
-Se o backend estiver em um servidor, edite `lib/core/constants/app_constants.dart`:
-
-```dart
-static const String baseUrl = 'https://seu-servidor.com'; // Substitua pela URL do servidor
-```
-
-## 8. Como Testar
-
-### Teste Completo do Sistema
-
-#### 1. **Teste do Backend**
-```bash
-# Acesse para verificar se está funcionando
-curl http://localhost:8000/
-
-# Teste específico do Gemini
-curl http://localhost:8000/test/gemini
-```
 
 #### 2. **Teste do Aplicativo Flutter**
 
@@ -460,8 +366,3 @@ curl http://localhost:8000/test/gemini
 - Código organizado seguindo Clean Architecture
 - Tratamento de erros implementado
 - Documentação completa no código
-
----
-
-**Data de Entrega**: 24/11/2025  
-**Apresentação**: 06/12/2025
